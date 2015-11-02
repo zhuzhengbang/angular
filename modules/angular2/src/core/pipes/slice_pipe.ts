@@ -74,7 +74,7 @@ export class SlicePipe implements PipeTransform {
     if (isBlank(args) || args.length == 0) {
       throw new BaseException('Slice pipe requires one argument');
     }
-    if (!this.supports(value)) {
+    if (!this._supports(value)) {
       throw new InvalidPipeArgumentException(SlicePipe, value);
     }
     if (isBlank(value)) return value;
@@ -86,5 +86,5 @@ export class SlicePipe implements PipeTransform {
     return ListWrapper.slice(value, start, end);
   }
 
-  private supports(obj: any): boolean { return isString(obj) || isArray(obj); }
+  private _supports(obj: any): boolean { return isString(obj) || isArray(obj); }
 }
