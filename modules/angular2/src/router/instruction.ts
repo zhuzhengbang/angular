@@ -281,9 +281,11 @@ export class UnresolvedInstruction extends Instruction {
 
 export class RedirectInstruction extends ResolvedInstruction {
   constructor(component: ComponentInstruction, child: Instruction,
-              auxInstruction: {[key: string]: Instruction}) {
+              auxInstruction: {[key: string]: Instruction}, private _specificity: number) {
     super(component, child, auxInstruction);
   }
+
+  get specificity(): number { return this._specificity; }
 }
 
 
