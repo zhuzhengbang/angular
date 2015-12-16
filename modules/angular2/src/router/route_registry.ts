@@ -205,7 +205,7 @@ export class RouteRegistry {
           if (candidate instanceof RedirectMatch) {
             var instruction = this.generate(candidate.redirectTo, ancestorInstructions);
             return new RedirectInstruction(instruction.component, instruction.child,
-                                           instruction.auxInstruction);
+                                           instruction.auxInstruction, candidate.specificity);
           }
         }));
 
